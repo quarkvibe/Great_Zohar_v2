@@ -1,0 +1,65 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        'deep-purple': '#2E0854',
+        'midnight-blue': '#191970',
+        'carnival-red': '#C71585',
+        'parchment': '#F5E8C1',
+        'mystical-gold': '#FFD700',
+        'ethereal-violet': '#9400D3',
+        'shadow-blue': '#483D8B',
+        'mystic-silver': '#E6E6FA',
+      },
+      fontFamily: {
+        'enigma': ['Cinzel', 'serif'],
+        'prophecy': ['Cormorant Garamond', 'serif'],
+        'carnival': ['Montserrat', 'sans-serif'],
+      },
+      animation: {
+        float: 'float 6s ease-in-out infinite',
+        blink: 'blink 1s step-end infinite',
+        pulse: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'cosmic-spin': 'cosmic-spin 20s linear infinite',
+        'mystic-fade': 'mystic-fade 3s ease-in-out infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        blink: {
+          '0%, 100%': { opacity: 1 },
+          '50%': { opacity: 0 },
+        },
+        'cosmic-spin': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        'mystic-fade': {
+          '0%, 100%': { opacity: 0.3 },
+          '50%': { opacity: 0.7 },
+        },
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(var(--tw-gradient-stops))',
+        'mystic-pattern': 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0L49.8 6.485 48.384 7.9l-7.9-7.9h2.83zM16.686 0L10.2 6.485 11.616 7.9l7.9-7.9h-2.83zM22.343 0L13.8 8.544 15.214 9.96l9.9-9.9h-2.77zm22.628 0L53.8 8.829 52.385 10.243 41.8 0h3.17zm-16.97 0L36.8 8.829 35.385 10.243 24.8 0h3.17zm11.314 0L48.8 9.114 47.385 10.53 35.8 0h3.157zm-16.97 0L31.8 9.114 30.385 10.53 18.8 0h3.157zM41.8 0L53.8 12 52.385 13.414 40.385 1.414 41.8 0zm-9.9 0l12 12-1.414 1.414-12-12L31.9 0zm5.657 0l12 12-1.414 1.414-12-12L37.557 0zm-16.97 0l12 12-1.414 1.414-12-12L20.587 0zm22.627 0l12 12-1.414 1.414-12-12L43.214 0zm-28.284 0l12 12-1.414 1.414-12-12L14.93 0zm-11.314 0l12 12-1.414 1.414-12-12L3.616 0zM58.627 0l12 12-1.414 1.414-12-12L58.627 0zM54.627 0l12 12-1.414 1.414-12-12L54.627 0zM50.627 0l12 12-1.414 1.414-12-12L50.627 0zM46.627 0l12 12-1.414 1.414-12-12L46.627 0zM42.627 0l12 12-1.414 1.414-12-12L42.627 0zM38.627 0l12 12-1.414 1.414-12-12L38.627 0z\' fill=\'%239C92AC\' fill-opacity=\'0.05\' fill-rule=\'evenodd\'/%3E%3C/svg%3E")',
+      },
+      boxShadow: {
+        'glow': '0 0 15px rgba(199, 21, 133, 0.3), 0 0 30px rgba(25, 25, 112, 0.2)',
+        'mystic': '0 0 20px rgba(148, 0, 211, 0.3), 0 0 40px rgba(72, 61, 139, 0.2)',
+        'inner-glow': 'inset 0 0 15px rgba(199, 21, 133, 0.2)',
+      },
+      transitionProperty: {
+        'glow': 'box-shadow, transform, opacity',
+      },
+      scale: {
+        '102': '1.02',
+      },
+    },
+  },
+  plugins: [],
+};
