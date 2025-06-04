@@ -9,6 +9,7 @@ const ConsultationChamber: React.FC = () => {
   const { userData, updateUserData, generateVision } = useZohar();
   const [currentStep, setCurrentStep] = useState(0);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const psychometricQuestions = [
     "What draws your attention most often in your day-to-day life?",
@@ -30,22 +31,26 @@ const ConsultationChamber: React.FC = () => {
   ];
 
   const handleNextStep = () => {
+    setError(null); // Clear any previous errors
     setCurrentStep(prev => prev + 1);
   };
 
   const handlePrevStep = () => {
+    setError(null); // Clear any previous errors
     setCurrentStep(prev => prev - 1);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsProcessing(true);
+    setError(null);
     
     try {
       await generateVision();
       navigate('/vision');
     } catch (error) {
       console.error('Error generating vision:', error);
+      setError(error instanceof Error ? error.message : 'The cosmic energies are disrupted. Please try again.');
       setIsProcessing(false);
     }
   };
@@ -69,6 +74,12 @@ const ConsultationChamber: React.FC = () => {
         <ProgressIndicator currentStep={currentStep} totalSteps={4} />
         
         <div className="bg-midnight-blue/50 backdrop-blur-md rounded-lg p-6 mt-6 shadow-glow border border-deep-purple">
+          {error && (
+            <div className="mb-6 p-4 bg-carnival-red/20 border border-carnival-red/50 rounded-md">
+              <p className="text-carnival-red text-sm">{error}</p>
+            </div>
+          )}
+          
           <form onSubmit={handleSubmit}>
             {/* Step 1: Basic Information */}
             {currentStep === 0 && (
